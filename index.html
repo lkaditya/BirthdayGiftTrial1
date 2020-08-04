@@ -42,7 +42,7 @@
         const extra = [4, 2, 1, 5, 1, 3, 3, 5, 4, 5, 1, 3, 4, 5, 4, 3, 3, 5, 4, 2];
         //index 0 is the question, the rest is the answer from every people
         const psychContent1 = ["1. What club will Vina be a member of at age 72?","The Emmaus Old Adult CCPG","ibu-ibu kompleks Gading","Single Oldies Society (SOS)","extra","ayu"];
-        const psychContent2 = ["2. Vina's biggest strength is...", "ayu", "extra", "people person", "found in Christ alone","can be a joker naturally, anytime, anywhere"];
+        const psychContent2 = ["2. Vina's biggest strength is...", "ayu", "extra", "people person", "found in Christ alone","to be a joker naturally, anytime, anywhere"];
         const psychContent3 = ["3. Vina's recent big achievement is...", "extra", "affirmed by Dodo to be \"slimmer\"", "saying no to thai milk tea", "sehat walau keluar rumah","ayu"];
         const psychContent4 = ["4. If Vina has a superpower, what would it be?","heart-melting speech","mind-reading","ayu","da kaypoh power","extra"];
         const psychContent5 = ["5. If you and Vina become a duet group, what would the name be?", "extra", "Buddy-buddy journey sing-along!!", "Maryna Baybs", "ayu","Tuhan kirimkanlah..."];
@@ -150,13 +150,20 @@
             document.getElementById("content").innerHTML = overalltable;
         }
         function next() {
-            if (current < 20) {
+            if (current == 0) {
                 current++;
                 createTable();
                 var index = current; //keep in mind the indexing  
                 document.getElementById("question").innerHTML = pyschContent[index - 1][0];
+                document.getElementById("left").innerHTML = "";
+            }else if( current>0 && current< 20) {
+                current++;
+                createTable();
+                var index = current; //keep in mind the indexing  
+                document.getElementById("question").innerHTML = pyschContent[index - 1][0];
+                document.getElementById("left").innerHTML = "<img width = '100' height = '100' src = 'https://image.flaticon.com/icons/svg/892/892639.svg' onclick = 'previous()'/>";   
             } else {
-                document.getElementById("question").innerHTML = "Here's the video from all of us";
+                document.getElementById("question").innerHTML = "Here's a video from all of us";
                 document.getElementById("content").innerHTML = "<a href> put the link for the video later</a>";
                 document.getElementById("right").innerHTML = "";
                 document.getElementById("left").innerHTML = "";
@@ -164,13 +171,17 @@
 
         }
         function previous() {
+            
             if (current > 1) {
                 current--;
+                console.log(current);
+                if (current == 1) {
+                    document.getElementById("left").innerHTML = "";
+                }
                 createTable();
                 var index = current; //keep in mind the indexing
-                document.getElementById("question").innerHTML = pyschContent[index-1][0];
+                document.getElementById("question").innerHTML = pyschContent[index - 1][0];
             }
-
         }
 
     </script>
@@ -180,8 +191,8 @@
                 <div class="header" id="question" ><h1>GET READY AND ENJOY, VINA!!</h1></div>
                 <table border="0" width="100%">
                     <tr>
-                        <td align="center" id="left">
-                            <img width="100" height="100" src="https://image.flaticon.com/icons/svg/892/892639.svg" onclick="previous()" />
+                        <td align="center" id="left" width="10%">
+                            <!--img width="100" height="100" src="https://image.flaticon.com/icons/svg/892/892639.svg" onclick="previous()" /-->
                         </td>
                         <td width="80%" height="550px" class="content" id="content">
                             
