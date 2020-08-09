@@ -33,7 +33,6 @@
             color: black;
         }
     </style>
-    <script type="text/javascript" src="DataAnswer.json"></script>
     <script>
         //people mapping
         const airyn = [1, 4, 3, 4, 3, 2, 5, 1, 3, 2, 2, 4, 5, 1, 1, 5, 4, 2, 3, 5];
@@ -132,6 +131,10 @@
 
         }
 
+        function showVideo() {
+            document.getElementById("content").innerHTML = "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/VX76XL9d-Ic\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen\>";
+        }
+
         function createTable() {
             var overalltable = "<table border='0' cellspacing='14' height='500px' width='80%' align='center'>";
             var sizeOfAnswer = 5;
@@ -142,8 +145,6 @@
 
                 overalltable += "<tr>";
                 overalltable += "<td class='answer' onclick='reveal(\"" + questionIndex + "\",\"" + personIndex + "\")' id='answer" + x + "'>" + pyschContent[questionIndex][personIndex] + "</td > ";
-                //overalltable += pyschContent[current-1][x+1];
-                //overalltable += "</td> ";
                 overalltable += "</tr>";
             }
 
@@ -165,7 +166,8 @@
                 document.getElementById("left").innerHTML = "<img width = '100' height = '100' src = 'https://image.flaticon.com/icons/svg/892/892639.svg' onclick = 'previous()'/>";
             } else {
                 document.getElementById("question").innerHTML = "Here's a video from all of us!!";
-                document.getElementById("content").innerHTML = "<a href='https://youtu.be/VX76XL9d-Ic'>click to see the video here</a>";
+                document.getElementById("content").innerHTML = "<button onclick='showVideo()'>click to see the video here</button>"
+                
                 document.getElementById("right").innerHTML = "";
                 document.getElementById("left").innerHTML = "";
             }
@@ -193,16 +195,9 @@
                 <table border="0" width="100%">
                     <tr>
                         <td align="center" id="left" width="10%">
-                            <!--img width="100" height="100" src="https://image.flaticon.com/icons/svg/892/892639.svg" onclick="previous()" /-->
                         </td>
                         <td width="80%" height="550px" class="content" id="content">
-
-
-
-                            <!--img src="https://lh3.googleusercontent.com/GQIqMDh5JElQp_cm8XZDw5F_SjmrxDyUU2OHew_xaQ6XpoFXsem8uyvxBc6H2gkNdQ" /-->
                             <img width ="600" height="300" src="https://i.imgur.com/vXpiRFL.png" />
-
-
                         </td>
                         <td align="center" id="right">
                             <img width="100" height="100" src="https://image.flaticon.com/icons/svg/892/892655.svg" onclick="next()" />
